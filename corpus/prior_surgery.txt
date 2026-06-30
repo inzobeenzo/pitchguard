@@ -1,0 +1,8 @@
+Source: UCL reconstruction outcomes and re-injury (return-to-play literature)
+ 
+Most pitchers return to play after UCL reconstruction (Tommy John surgery), with return
+rates commonly reported around 80-92 percent, though recovery typically takes over a year. A
+prior UCL surgery is itself a recognized risk factor: some pitchers go on to re-rupture the
+reconstructed ligament and require revision surgery. Pitching workload and fastball usage
+often decrease after reconstruction. Because of this re-injury risk, a history of prior
+Tommy John surgery is an important input when assessing a pitcher's future injury risk.

@@ -1,0 +1,8 @@
+Source: Game-by-game pitch trends before UCL reconstruction (MLB pitchers, 2009-2019)
+ 
+A review of MLB pitchers in the 15 games leading up to Tommy John surgery looked for
+patterned changes that might flag an impending injury. Pitchers showed measurable changes
+in pitch selection, velocity, and spin rate in the games before surgery. Although the
+absolute decreases in velocity were small, the authors note that even slight velocity drops
+may reflect meaningful accumulating stress at the medial elbow. This supports tracking
+within-pitcher trends over time rather than relying on single-game snapshots.

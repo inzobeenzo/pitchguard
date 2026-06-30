@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+chroma_db/
+statcast_2015_2023.parquet
+*.png

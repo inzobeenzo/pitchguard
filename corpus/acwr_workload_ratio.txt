@@ -1,0 +1,8 @@
+Source: Acute-to-chronic workload ratio in injury prevention (training-load research)
+ 
+The acute-to-chronic workload ratio (ACWR) compares an athlete's recent (acute) workload to
+their longer-term (chronic) baseline workload. A sharp spike -- recent workload rising well
+above the established baseline -- is associated with elevated injury risk across many sports.
+Gradually building workload tends to be protective, while sudden increases overload tissues
+that have not had time to adapt. Applied to pitching, a rapid jump in recent pitch volume
+relative to a pitcher's own norm is a warning sign for elevated injury risk.

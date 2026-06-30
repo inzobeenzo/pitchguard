@@ -1,0 +1,11 @@
+Source: Systematic review of UCL injury risk factors in baseball (Journal of ISAKOS, 2021)
+ 
+Across multiple studies, increased pitching workload and higher pitch velocity are the
+most consistently reported risk factors for ulnar collateral ligament (UCL) injury in
+baseball pitchers. Higher cumulative workload -- more pitches per game, inning, or season
+-- was significantly associated with UCL injury in most studies examined. Pitch velocity
+was the most commonly reported pitch characteristic linked to injury, with the majority of
+studies finding that higher velocity was significantly associated with UCL damage. The
+review noted that the definition of workload varied across studies, which makes exact
+injury thresholds difficult to pin down.
+ 

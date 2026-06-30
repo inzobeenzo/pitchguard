@@ -1,0 +1,9 @@
+Source: Modeling note -- injury prediction as a rare-event problem
+ 
+Injury prediction is a rare-event classification problem: surgeries are uncommon relative to
+the number of healthy pitcher-seasons, which produces severe class imbalance. Models should
+be evaluated with precision-recall metrics such as PR-AUC rather than raw accuracy, because a
+model that predicts "no injury" for everyone can score deceptively high on accuracy.
+Interpretability tools like SHAP reveal which features a model relied on, but these reflect
+correlations the model found in the data -- including survivorship effects, where durable
+veterans who are still pitching appear lower-risk -- rather than proven causes of injury.

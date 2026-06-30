@@ -1,0 +1,9 @@
+Source: Pitch-specific tracking risk factors for UCL injury, MLB case-control study (115 surgery cases vs 230 matched controls)
+ 
+Comparing MLB pitchers who underwent UCL reconstruction against matched controls, several
+pitch-tracking metrics were associated with injury. Higher-velocity fastballs, changeups,
+and sinkers were each linked to surgery. A decreased (lower, more horizontal) release point
+for fastballs, curveballs, and sinkers was also associated with UCL injury. An increased
+slider spin rate and a longer cutter release extension were additional risk signals. The
+authors argue that the entire pitch arsenal, not fastball velocity alone, deserves attention
+when assessing UCL injury risk.
