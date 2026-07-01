@@ -1,4 +1,3 @@
-<img width="1040" height="1131" alt="pitchguard_shap" src="https://github.com/user-attachments/assets/30f00f62-41cb-47ed-8c62-a4f2cf35f18d" />
 # PitchGuard
 
 **Predicting MLB pitcher elbow-injury (Tommy John) risk — and explaining every prediction with cited sports-science research.**
