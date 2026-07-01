@@ -8,6 +8,6 @@ eval_retrieval(coll, [
     {"query": "does a lowered release point predict UCL injury?","expect_source": "pitch_tracking_case_control"},
 ])
 
-result = explain(coll, ["players's jersey color", "astrological sign"])
+result = explain(coll, ["uniform color", "astrological sign"])
 assert result["sources"] == [], "should have refused!"
 print("refusal test passed:", result["answer"])
