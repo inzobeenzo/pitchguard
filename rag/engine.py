@@ -4,12 +4,12 @@ import chromadb
 from chromadb.utils import embedding_functions
 import requests
 
-CORPUS_DIR   = "corpus"
-DB_DIR       = "chroma_db"
-COLLECTION   = "sports_science"
-EMBED_MODEL  = "all-MiniLM-L6-v2"
-TOP_K        = 4
-MAX_DISTANCE = 0.75 # cosine distance; above this = "not relevant" (guardrail)
+CORPUS_DIR = "corpus"
+DB_DIR = "chroma_db"
+COLLECTION = "sports_science"
+EMBED_MODEL = "all-MiniLM-L6-v2"
+TOP_K = 4
+MAX_DISTANCE = 0.39 # cosine distance; above this = "not relevant" (guardrail)
 
 # 1. CHUNKING — split long documents into overlapping passages so retrieval
 #    returns a focused, citable piece instead of a whole paper. Overlap keeps
@@ -76,12 +76,10 @@ def generate(prompt: str) -> str:
 #    explain_prediction() in pitchguard_model.py returns the feature list
 #    that goes straight into `top_features` here. That's the whole system.
 def explain(coll, top_features: list[str], k: int = TOP_K) -> dict:
-    query = ("Why do these factors raise a pitcher's UCL / Tommy John injury risk: "
-             + ", ".join(top_features) + "?")
+    query = ("Why do these factors raise a pitcher's UCL / Tommy John injury risk: " + ", ".join(top_features) + "?")
     chunks = retrieve(coll, query, k)
-    if not chunks or chunks[0]["distance"] > MAX_DISTANCE:    # GUARDRAIL
-        return {"answer": "Not enough grounded evidence to explain this prediction.",
-                "sources": [], "query": query}
+    if not chunks or chunks[0]["distance"] > MAX_DISTANCE:
+        return {"answer": "Not enough grounded evidence to explain this prediction.", "sources": [], "query": query}
     answer = generate(build_prompt(query, chunks))
     return {"answer": answer, "sources": sorted({c["source"] for c in chunks}), "query": query}
 
