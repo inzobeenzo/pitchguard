@@ -9,7 +9,7 @@ DB_DIR = "chroma_db"
 COLLECTION = "sports_science"
 EMBED_MODEL = "all-MiniLM-L6-v2"
 TOP_K = 4
-MAX_DISTANCE = 0.39 # cosine distance; above this = "not relevant" (guardrail)
+MAX_DISTANCE = 0.35 # cosine distance; above this = "not relevant" (guardrail)
 
 # 1. CHUNKING — split long documents into overlapping passages so retrieval
 #    returns a focused, citable piece instead of a whole paper. Overlap keeps
