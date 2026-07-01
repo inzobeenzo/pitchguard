@@ -47,6 +47,7 @@ repeated 2019–2023) so performance reflects real forward-in-time prediction.
 | PR-AUC (mean ± std across 5 folds) | **0.113 ± 0.019** |
 | ROC-AUC (mean ± std) | 0.645 ± 0.035 |
 | Random baseline (PR) | ~0.05 |
+<img width="2080" height="598" alt="pitchguard_metrics" src="https://github.com/user-attachments/assets/2a1523ed-3df8-4da2-8558-403a23e30075" />
 
 The model scores roughly **2× the random base rate**, consistently across folds — modest but
 real. The small spread is the point: it shows the signal is genuine, not a lucky split.
@@ -56,6 +57,8 @@ velocity raise predicted risk; more rest lowers it — consistent with the injur
 Age and prior-surgery history lower predicted risk, which reflects **survivorship** (pitchers
 still throwing after years or after a prior surgery are the durable ones), not a protective
 effect. SHAP shows what the model *used*, not what *causes* injury.
+
+<img width="1040" height="1131" alt="pitchguard_shap" src="https://github.com/user-attachments/assets/90085508-76da-4430-86e1-bffe8e16da9d" />
 
 ---
 
