@@ -5,12 +5,11 @@
 PitchGuard is a two-part system. A machine-learning model estimates a pitcher's risk of
 needing ulnar collateral ligament (UCL) reconstruction — "Tommy John" surgery — from their
 pitching data. A retrieval-augmented generation (RAG) layer then explains *why* a pitcher is
-flagged, in plain language, grounded in and citing real research. The two halves connect
-through SHAP: the model surfaces *which* factors drove a prediction, and those factors become
+flagged, grounded in and citing real research. The two halves connect through SHAP: 
+the model surfaces *which* factors drove a prediction, and those factors become
 the query that retrieves the relevant literature.
 
-The result isn't just a risk score — it's a risk score a coach or clinician could actually
-interpret and trust.
+NOTE: Documents contain generalized summaries of other papers, not direct quotes, to imitate real workflow.
 
 ---
 
@@ -18,7 +17,7 @@ interpret and trust.
 
 ```
 Statcast pitch data ──► feature engineering ──► risk model ──► SHAP
-(via pybaseball)        (pitcher-season           (XGBoost)      │ top risk factors
+(via pybaseball)        (pitcher-season           (XGBoost)       │ top risk factors
                          workload + mechanics)                    ▼
                                                          retrieval query
                                                                   │
@@ -49,11 +48,11 @@ repeated 2019–2023) so performance reflects real forward-in-time prediction.
 | Random baseline (PR) | ~0.05 |
 <img width="2080" height="598" alt="pitchguard_metrics" src="https://github.com/user-attachments/assets/2a1523ed-3df8-4da2-8558-403a23e30075" />
 
-The model scores roughly **2× the random base rate**, consistently across folds — modest but
-real. The small spread is the point: it shows the signal is genuine, not a lucky split.
+The model scores roughly **2× the random base rate**, consistently across folds. 
+This shows the signal is genuine, not lucky.
 
 **What the model learned (stable across all folds):** higher pitch workload and higher fastball
-velocity raise predicted risk; more rest lowers it — consistent with the injury literature.
+velocity raise predicted risk, while more rest lowers it.
 Age and prior-surgery history lower predicted risk, which reflects **survivorship** (pitchers
 still throwing after years or after a prior surgery are the durable ones), not a protective
 effect. SHAP shows what the model *used*, not what *causes* injury.
@@ -73,8 +72,8 @@ drift, pitch mix, and rest. All rolling windows look strictly backward to preven
 Labels come from the public Tommy John Surgery List (surgery within ~18 months of a season).
 
 **Model** (`model.py`) — a logistic-regression baseline and a gradient-boosted tree model
-(XGBoost) with class-imbalance weighting; the decision threshold is tuned on a validation set,
-never the test set. SHAP explains each prediction.
+(XGBoost) with class-imbalance weighting with the decision threshold tuned on a validation set. 
+SHAP explains each prediction.
 
 **Validation** (`crossval.py`) — time-based cross-validation for a trustworthy averaged score,
 plus a check on whether SHAP feature directions are stable across folds.
@@ -82,8 +81,8 @@ plus a check on whether SHAP feature directions are stable across folds.
 **Explanation** (`rag/engine.py`) — a RAG pipeline: a sports-science corpus is chunked, embedded
 (`sentence-transformers`), and stored in a vector database (`chromadb`). For a prediction, the
 top SHAP features become a query, the nearest chunks are retrieved by cosine similarity, and a
-local LLM (via `Ollama`) writes a grounded, cited answer — refusing when retrieved evidence is
-too weak.
+local LLM (via `Ollama`) writes a grounded, cited answer which refuses when retrieved evidence is
+too weak. 
 
 **Interface** (`rag/app.py`) — a Streamlit app to enter a pitcher's risk factors and see the
 explanation with sources.
@@ -140,13 +139,13 @@ This is an honest model on hard, public data — the limitations are part of the
 
 - **Few positive cases.** Only ~50–80 documented surgeries across the dataset, which caps how
   well any model can do and makes metrics inherently noisy.
-- **Public-data ceiling.** Statcast pitch data plus surgery dates can only go so far; the
+- **Public-data ceiling.** Statcast pitch data plus surgery dates can only go so far. The
   strongest published injury models use biomechanics-lab measurements not publicly available.
 - **Correlation, not causation.** SHAP explanations reflect patterns the model exploited
   (including survivorship effects), not proven causes of injury.
 - **Not a medical device.** This is a research and portfolio project, not a clinical tool.
 
-A modest, well-validated result is the correct outcome here — a high accuracy number on this
+A modest, well-validated result is the correct outcome here as a high accuracy number on this
 data would more likely indicate a data-leakage bug than a genuinely strong model.
 
 ---
